@@ -1,10 +1,3 @@
-//
-//  RemindersApp.swift
-//  Reminders
-//
-//  Created by icy on 3/3/26.
-//
-
 import SwiftUI
 
 @main
