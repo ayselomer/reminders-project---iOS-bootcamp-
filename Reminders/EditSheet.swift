@@ -1,11 +1,18 @@
 import SwiftUI
 
 struct EditSheet: View {
+    @Environment(\.dismiss) var dismiss
     @Binding var title: String
     @Binding var selectedColor: Color
     
     var body: some View {
         VStack(spacing: 20) {
+            HStack {
+                Spacer()
+                Button("Done") { dismiss() }
+                    .fontWeight(.bold)
+            }
+            
             HStack {
                 Image(systemName: "list.bullet.circle.fill")
                     .font(.system(size: 60))
@@ -15,18 +22,9 @@ struct EditSheet: View {
             }
             
             ColorChooser(selectedColor: $selectedColor)
-            
             Spacer()
         }
         .foregroundStyle(selectedColor)
         .padding()
     }
-}
-
-#Preview {
-    @Previewable @State var title: String = "Todo List"
-    @Previewable @State var selectedColor: Color = .red
-    
-    EditSheet(title: $title, selectedColor: $selectedColor)
-        .preferredColorScheme(.dark)
 }
